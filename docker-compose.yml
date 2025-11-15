@@ -1,0 +1,16 @@
+services:
+  # Serviço da API (Backend)
+  api:
+    build: ./apps/api
+    ports:
+      - "3000:3000"
+    container_name: poke-api-backend
+
+  # Serviço do PWA (Frontend)
+  web:
+    build: ./apps/web  # (Verifique se sua pasta POKE-API se chama 'web')
+    ports:
+      - "8080:80"      # Expõe seu PWA na porta 8080
+    container_name: poke-api-web
+    depends_on:
+      - api

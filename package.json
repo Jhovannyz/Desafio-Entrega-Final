@@ -1,0 +1,11 @@
+{
+  "name": "poke-api-monorepo",
+  "version": "1.0.0",
+  "description": "Projeto PWA com Docker e Playwright",
+  "scripts": {
+    "test": "npx playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.1"
+  }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha PokeAPI</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#ec0089">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo à Minha PokeAPI</h1>
+        <p>Explore o mundo dos Pokémons!</p>
+    </header>
+
+    <main id="app">
+        <p>Carregando Pokémons...</p>
+    </main>
+    
+    <script src="app.js"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                .then(registration => {
+                    console.log('Service Worker registrado com sucesso:', registration.scope);
+                })
+                .catch(error => {
+                    console.log('Falha ao registrar o Service Worker:', error);
+                });
+            });
+        }
+    </script>
+</body>
+</html>

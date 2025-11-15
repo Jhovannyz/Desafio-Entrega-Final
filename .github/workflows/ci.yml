@@ -1,0 +1,45 @@
+name: CI PWA PokeAPI
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 1. Checkout (Baixar o código)
+        uses: actions/checkout@v4
+
+      - name: 2. Setup Node.js (para o Playwright)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 3. Instalar dependências do Playwright
+        run: npm install # Instala o Playwright (package.json da raiz)
+
+      - name: 4. Instalar navegadores do Playwright
+        run: npx playwright install --with-deps # Instala o Chrome, etc.
+
+      - name: 5. Subir os containers (Docker Compose)
+        run: docker-compose up --build -d # O -d roda em background
+
+      - name: 6. Esperar os serviços subirem
+        run: |
+          echo "Aguardando 15s para os containers estabilizarem..."
+          sleep 15
+
+      - name: 7. Rodar os testes E2E (Playwright)
+        run: npx playwright test # Roda os testes no localhost:8080
+
+      - name: 8. Upload do Relatório de Testes (Sempre)
+        if: always() # Roda mesmo se o passo 7 falhar
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
