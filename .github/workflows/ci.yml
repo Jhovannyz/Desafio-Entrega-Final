@@ -26,7 +26,7 @@ jobs:
         run: npx playwright install --with-deps # Instala o Chrome, etc.
 
       - name: 5. Subir os containers (Docker Compose)
-        run: docker-compose up --build -d # O -d roda em background
+        run: docker compose up --build -d # <-- Com espaço
 
       - name: 6. Esperar os serviços subirem
         run: |
