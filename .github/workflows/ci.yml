@@ -20,7 +20,7 @@ jobs:
           node-version: '20'
 
       - name: 3. Instalar dependências do Playwright
-        run: npm install # Instala o Playwright (package.json da raiz)
+        run: npm ci # <-- Mude para "ci" se você tiver um package-lock.json
 
       - name: 4. Instalar navegadores do Playwright
         run: npx playwright install --with-deps # Instala o Chrome, etc.
