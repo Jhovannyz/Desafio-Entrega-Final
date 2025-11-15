@@ -38,16 +38,20 @@ Para rodar o projeto completo (PWA + API) em sua máquina, você precisa ter o *
 
 1.  Clone este repositório:
     ```bash
-    git clone [https://github.com/seu-usuario/seu-repositorio.git](https://github.com/seu-usuario/seu-repositorio.git)
-    cd seu-repositorio
+    git clone [https://github.com/Jhovannyz/Desafio-Entrega-Final.git](https://github.com/Jhovannyz/Desafio-Entrega-Final.git)
     ```
 
-2.  Suba os containers usando o Docker Compose:
+2.  Entre na pasta do projeto:
     ```bash
-    docker-compose up --build
+    cd Desafio-Entrega-Final
     ```
 
-3.  Acesse o PWA no seu navegador:
+3.  Suba os containers usando o Docker Compose:
+    ```bash
+    docker compose up --build
+    ```
+
+4.  Acesse o PWA no seu navegador:
     * **URL:** `http://localhost:8080`
 
 ## 🧪 Testes E2E (Playwright)
@@ -70,4 +74,4 @@ Os testes de ponta-a-ponta (E2E) garantem que a aplicação carrega e que a inte
 
 O PWA está publicado e disponível para instalação através do GitHub Pages.
 
-* **Link da Aplicação:** `[INSERIR O LINK DO GITHUB PAGES AQUI]`
+* **Link da Aplicação:** `https://jhovannyz.github.io/Desafio-Entrega-Final/`
